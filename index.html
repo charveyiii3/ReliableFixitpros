@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reliable Fix It Pros - Professional Handyman Services | Book Online</title>
+    <meta name="description" content="Professional handyman services you can trust. Fast, reliable repairs and home improvements. Book online for same-day service. Licensed, insured, and satisfaction guaranteed.">
+    <meta name="keywords" content="handyman, home repair, professional contractor, plumbing, electrical, carpentry, painting, maintenance">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Reliable Fix It Pros - Professional Handyman Services">
+    <meta property="og:description" content="Fast, reliable home repairs and improvements. Book online for same-day service.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reliablefixitpros.com">
+    <meta property="og:image" content="./images/Handyman.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Reliable Fix It Pros",
+        "description": "Professional handyman services including plumbing, electrical, carpentry, and home repairs",
+        "url": "https://reliablefixitpros.com",
+        "telephone": "+1-555-FIX-PROS",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Your City",
+            "addressRegion": "Your State",
+            "postalCode": "12345",
+            "addressCountry": "US"
+        },
+        "openingHours": "Mo-Fr 07:00-19:00, Sa 08:00-17:00",
+        "priceRange": "$$",
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "40.7128",
+                "longitude": "-74.0060"
+            },
+            "geoRadius": "50000"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Handyman Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Plumbing Repairs",
+                        "description": "Professional plumbing repair services"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Electrical Work",
+                        "description": "Licensed electrical repairs and installations"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Carpentry Services",
+                        "description": "Custom carpentry and woodwork"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="reliable-fix-it-pros.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://reliablefixitpros.com">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="./images/logo.svg" alt="Reliable Fix It Pros Logo" width="50" height="50">
+                    <span class="logo-text">Reliable Fix It Pros</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="tel:+1-555-FIX-PROS" class="phone-btn">📞 (555) FIX-PROS</a>
+                    <button class="cta-btn" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Professional Handyman Services You Can <span class="highlight">Trust</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Fast, reliable home repairs and improvements. Licensed, insured, and backed by our 100% satisfaction guarantee.
+                </p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <span>Same-Day Service</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🛡️</span>
+                        <span>Licensed & Insured</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⭐</span>
+                        <span>5-Star Rated</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="cta-btn-large" onclick="openBookingModal()">Get Free Quote</button>
+                    <a href="tel:+1-555-FIX-PROS" class="phone-btn-large">📞 Call Now</a>
+                </div>
+                <div class="trust-indicators">
+                    <span>🏆 500+ Happy Customers</span>
+                    <span>📅 Serving Since 2018</span>
+                    <span>💯 100% Satisfaction Guarantee</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./images/Handyman.png" alt="Reliable Fix It Pros technician working in customer's kitchen" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expert Services</h2>
+                <p>From minor repairs to major improvements, we handle it all with professional expertise</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Plumbing Repairs</h3>
+                    <p>Leaky faucets, clogged drains, toilet repairs, and emergency plumbing fixes</p>
+                    <ul class="service-list">
+                        <li>Faucet & fixture installation</li>
+                        <li>Drain cleaning & repair</li>
+                        <li>Toilet repairs & replacement</li>
+                        <li>Pipe leak fixes</li>
+                    </ul>
+                    <button class="service-cta" onclick="openBookingModal('plumbing')">Book Plumbing Service</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Electrical Work</h3>
+                    <p>Safe, licensed electrical repairs and installations for your home</p>
+                    <ul class="service-list">
+                        <li>Outlet & switch installation</li>
+                        <li>Light fixture mounting</li>
+                        <li>Ceiling fan installation</li>
+                        <li>Electrical troubleshooting</li>
+                    </ul>
+                    <button class="service-cta" onclick="openBookingModal('electrical')">Book Electrical Service</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Carpentry & Repair</h3>
+                    <p>Custom carpentry, furniture assembly, and general home repairs</p>
+                    <ul class="service-list">
+                        <li>Furniture assembly</li>
+                        <li>Cabinet installation</li>
+                        <li>Trim & molding work</li>
+                        <li>Door & window repairs</li>
+                    </ul>
+                    <button class="service-cta" onclick="openBookingModal('carpentry')">Book Carpentry Service</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Painting & Drywall</h3>
+                    <p>Interior and exterior painting, drywall repair, and wall improvements</p>
+                    <ul class="service-list">
+                        <li>Interior & exterior painting</li>
+                        <li>Drywall repair & patching</li>
+                        <li>Texture matching</li>
+                        <li>Wallpaper removal</li>
+                    </ul>
+                    <button class="service-cta" onclick="openBookingModal('painting')">Book Painting Service</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Home Maintenance</h3>
+                    <p>Regular maintenance and seasonal home care services</p>
+                    <ul class="service-list">
+                        <li>Gutter cleaning & repair</li>
+                        <li>Pressure washing</li>
+                        <li>Weatherproofing</li>
+                        <li>Seasonal maintenance</li>
+                    </ul>
+                    <button class="service-cta" onclick="openBookingModal('maintenance')">Book Maintenance Service</button>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>TV & Tech Setup</h3>
+                    <p>Professional TV mounting and smart home technology installation</p>
+                    <ul class="service-list">
+                        <li>TV wall mounting</li>
+                        <li>Smart home setup</li>
+                        <li>Cable management</li>
+                        <li>Home theater installation</li>
+                    </ul>
+                    <button class="service-cta" onclick="openBookingModal('tech')">Book Tech Service</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Reliable Fix It Pros?</h2>
+                    <p class="about-intro">
+                        With over 5 years of experience and 500+ satisfied customers, we're your trusted local handyman experts.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="feature-icon">🎯</div>
+                            <div>
+                                <h4>Professional Expertise</h4>
+                                <p>Licensed, insured professionals with years of experience in home repairs and improvements.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon">⏰</div>
+                            <div>
+                                <h4>Reliable Service</h4>
+                                <p>On-time arrivals, fair pricing, and quality work completed right the first time.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon">💰</div>
+                            <div>
+                                <h4>Transparent Pricing</h4>
+                                <p>No hidden fees. You'll know the cost upfront with our free, detailed estimates.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon">🔒</div>
+                            <div>
+                                <h4>Satisfaction Guarantee</h4>
+                                <p>100% satisfaction guaranteed on all work, or we'll make it right at no extra cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="./images/placeholder-team.svg" alt="Reliable Fix It Pros team" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it - see what our satisfied customers have to say</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Excellent service! They fixed my leaky faucet and installed new outlets in under 2 hours. Professional, clean, and reasonably priced."</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Homeowner</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Called them for emergency plumbing on a Sunday. They came out within 2 hours and had everything fixed. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <strong>Mike Chen</strong>
+                        <span>Property Manager</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Great work on our kitchen cabinet installation. Clean, professional, and completed on time. Will definitely use them again."</p>
+                    <div class="testimonial-author">
+                        <strong>Lisa Rodriguez</strong>
+                        <span>Homeowner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to get started? Contact us today for a free estimate!</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>(555) FIX-PROS</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>Email</strong>
+                                <p>info@reliablefixitpros.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>Service Area</strong>
+                                <p>Your City & Surrounding Areas</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🕒</span>
+                            <div>
+                                <strong>Hours</strong>
+                                <p>Mon-Fri: 7AM-7PM<br>Sat: 8AM-5PM<br>Emergency: 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-section">
+                    <div class="quick-contact">
+                        <h3>Quick Contact</h3>
+                        <form class="contact-form">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <textarea placeholder="Describe your project" rows="4" required></textarea>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Don't let small problems become big headaches. Book your service today!</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn-large" onclick="openBookingModal()">Book Online Now</button>
+                    <a href="tel:+1-555-FIX-PROS" class="phone-btn-large">📞 Call (555) FIX-PROS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./images/logo.svg" alt="Reliable Fix It Pros" width="40" height="40">
+                        <span>Reliable Fix It Pros</span>
+                    </div>
+                    <p>Your trusted local handyman experts. Licensed, insured, and committed to your satisfaction.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Plumbing Repairs</a></li>
+                        <li><a href="#services">Electrical Work</a></li>
+                        <li><a href="#services">Carpentry</a></li>
+                        <li><a href="#services">Painting & Drywall</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 (555) FIX-PROS</p>
+                    <p>📧 info@reliablefixitpros.com</p>
+                    <p>📍 Your City, State</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 7AM - 7PM</p>
+                    <p>Saturday: 8AM - 5PM</p>
+                    <p>Emergency: 24/7</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Reliable Fix It Pros. All rights reserved. | Licensed & Insured</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <div class="booking-funnel">
+                <!-- Step 1: Service Selection -->
+                <div class="booking-step active" id="step1">
+                    <h3>What service do you need?</h3>
+                    <div class="service-options">
+                        <button class="service-option" data-service="plumbing">
+                            <span class="option-icon">🔧</span>
+                            <span class="option-text">Plumbing</span>
+                        </button>
+                        <button class="service-option" data-service="electrical">
+                            <span class="option-icon">⚡</span>
+                            <span class="option-text">Electrical</span>
+                        </button>
+                        <button class="service-option" data-service="carpentry">
+                            <span class="option-icon">🔨</span>
+                            <span class="option-text">Carpentry</span>
+                        </button>
+                        <button class="service-option" data-service="painting">
+                            <span class="option-icon">🎨</span>
+                            <span class="option-text">Painting</span>
+                        </button>
+                        <button class="service-option" data-service="maintenance">
+                            <span class="option-icon">🏠</span>
+                            <span class="option-text">Maintenance</span>
+                        </button>
+                        <button class="service-option" data-service="tech">
+                            <span class="option-icon">📱</span>
+                            <span class="option-text">Tech Setup</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Project Details -->
+                <div class="booking-step" id="step2">
+                    <h3>Tell us about your project</h3>
+                    <div class="project-details">
+                        <textarea id="projectDescription" placeholder="Describe what you need done..." rows="4" required></textarea>
+                        <div class="urgency-selection">
+                            <label>How urgent is this?</label>
+                            <div class="urgency-options">
+                                <label class="radio-option">
+                                    <input type="radio" name="urgency" value="same-day">
+                                    <span>Same Day (+$50)</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="urgency" value="next-day">
+                                    <span>Next Day</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="urgency" value="this-week">
+                                    <span>This Week</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="urgency" value="flexible">
+                                    <span>I'm Flexible</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button class="btn-secondary" onclick="previousStep()">Back</button>
+                        <button class="btn-primary" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Contact Information -->
+                <div class="booking-step" id="step3">
+                    <h3>Your contact information</h3>
+                    <div class="contact-form">
+                        <div class="form-row">
+                            <input type="text" id="firstName" placeholder="First Name" required>
+                            <input type="text" id="lastName" placeholder="Last Name" required>
+                        </div>
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                        <input type="text" id="address" placeholder="Service Address" required>
+                    </div>
+                    <div class="step-navigation">
+                        <button class="btn-secondary" onclick="previousStep()">Back</button>
+                        <button class="btn-primary" onclick="nextStep()">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Schedule -->
+                <div class="booking-step" id="step4">
+                    <h3>When would you like us to come?</h3>
+                    <div class="schedule-selection">
+                        <div class="date-picker">
+                            <label>Preferred Date:</label>
+                            <input type="date" id="preferredDate" required>
+                        </div>
+                        <div class="time-slots">
+                            <label>Preferred Time:</label>
+                            <div class="time-options">
+                                <button class="time-slot" data-time="8-10">8:00 AM - 10:00 AM</button>
+                                <button class="time-slot" data-time="10-12">10:00 AM - 12:00 PM</button>
+                                <button class="time-slot" data-time="12-14">12:00 PM - 2:00 PM</button>
+                                <button class="time-slot" data-time="14-16">2:00 PM - 4:00 PM</button>
+                                <button class="time-slot" data-time="16-18">4:00 PM - 6:00 PM</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button class="btn-secondary" onclick="previousStep()">Back</button>
+                        <button class="btn-primary" onclick="nextStep()">Get Quote</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Confirmation -->
+                <div class="booking-step" id="step5">
+                    <div class="confirmation">
+                        <div class="success-icon">✅</div>
+                        <h3>Booking Request Submitted!</h3>
+                        <p>Thank you for choosing Reliable Fix It Pros. We'll contact you within 30 minutes to confirm your appointment and provide a detailed quote.</p>
+                        <div class="booking-summary">
+                            <h4>Booking Summary:</h4>
+                            <div id="bookingSummary"></div>
+                        </div>
+                        <div class="next-steps">
+                            <h4>What happens next?</h4>
+                            <ul>
+                                <li>📞 We'll call you within 30 minutes</li>
+                                <li>💰 Free estimate provided over phone</li>
+                                <li>📅 Appointment confirmed</li>
+                                <li>🔧 Professional service delivered</li>
+                            </ul>
+                        </div>
+                        <button class="btn-primary" onclick="closeBookingModal()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="reliable-fix-it-pros.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://your-username.github.io/reliable-fix-it-pros-website/sitemap.xml
+
+# Optimize for search engines
+Crawl-delay: 1
+
+# Allow important pages
+Allow: /index.html
+Allow: /reliable-fix-it-pros-ads.html
+Allow: /images/
+
+# Block any temporary or test files
+Disallow: /test/
+Disallow: /temp/
+Disallow: /*.tmp
+Disallow: /*.log
