@@ -7,17 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Define image fallback mapping
     const imageFallbacks = {
         'handyman-hero.png': [
+            'handyman-hero.png',
+            'Handyman.png',
             './images/handyman-hero.png',
             './images/Handyman.png',
-            'images/handyman-hero.png',
-            'images/Handyman.png',
+            'placeholder-hero.svg',
             './images/placeholder-hero.svg'
         ],
         'logo.svg': [
+            'logo.svg',
             './images/logo.svg',
             'images/logo.svg'
         ],
         'placeholder-team.svg': [
+            'placeholder-team.svg',
             './images/placeholder-team.svg',
             'images/placeholder-team.svg'
         ]

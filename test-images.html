@@ -53,9 +53,9 @@
         <h2>📸 Hero Image Tests</h2>
         
         <div class="image-test">
-            <h3>Test 1: Lowercase filename (handyman-hero.png)</h3>
-            <div class="path-display">images/handyman-hero.png</div>
-            <img src="./images/handyman-hero.png" alt="Handyman Hero Image Test 1" 
+            <h3>Test 1: Root level path (handyman-hero.png)</h3>
+            <div class="path-display">handyman-hero.png</div>
+            <img src="handyman-hero.png" alt="Handyman Hero Image Test 1" 
                  onload="document.getElementById('test1-status').className='status success'; document.getElementById('test1-status').textContent='✅ Image loaded successfully!';"
                  onerror="document.getElementById('test1-status').className='status error'; document.getElementById('test1-status').textContent='❌ Image failed to load';">
             <div id="test1-status" class="status">⏳ Loading...</div>
@@ -63,8 +63,8 @@
         
         <div class="image-test">
             <h3>Test 2: Original filename (Handyman.png)</h3>
-            <div class="path-display">images/Handyman.png</div>
-            <img src="./images/Handyman.png" alt="Handyman Hero Image Test 2" 
+            <div class="path-display">Handyman.png</div>
+            <img src="Handyman.png" alt="Handyman Hero Image Test 2" 
                  onload="document.getElementById('test2-status').className='status success'; document.getElementById('test2-status').textContent='✅ Image loaded successfully!';"
                  onerror="document.getElementById('test2-status').className='status error'; document.getElementById('test2-status').textContent='❌ Image failed to load';">
             <div id="test2-status" class="status">⏳ Loading...</div>
@@ -85,8 +85,8 @@
         
         <div class="image-test">
             <h3>Logo SVG Test</h3>
-            <div class="path-display">images/logo.svg</div>
-            <img src="./images/logo.svg" alt="Logo Test" width="100" height="100"
+            <div class="path-display">logo.svg</div>
+            <img src="logo.svg" alt="Logo Test" width="100" height="100"
                  onload="document.getElementById('logo-status').className='status success'; document.getElementById('logo-status').textContent='✅ Logo loaded successfully!';"
                  onerror="document.getElementById('logo-status').className='status error'; document.getElementById('logo-status').textContent='❌ Logo failed to load';">
             <div id="logo-status" class="status">⏳ Loading...</div>
@@ -98,8 +98,8 @@
         
         <div class="image-test">
             <h3>Team SVG Test</h3>
-            <div class="path-display">images/placeholder-team.svg</div>
-            <img src="./images/placeholder-team.svg" alt="Team Test" style="max-width: 400px;"
+            <div class="path-display">placeholder-team.svg</div>
+            <img src="placeholder-team.svg" alt="Team Test" style="max-width: 400px;"
                  onload="document.getElementById('team-status').className='status success'; document.getElementById('team-status').textContent='✅ Team image loaded successfully!';"
                  onerror="document.getElementById('team-status').className='status error'; document.getElementById('team-status').textContent='❌ Team image failed to load';">
             <div id="team-status" class="status">⏳ Loading...</div>
