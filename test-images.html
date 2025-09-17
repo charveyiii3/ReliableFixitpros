@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - Reliable Fix It Pros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .image-test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        .image-test img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .path-display {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #495057;
+            margin: 10px 0;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Reliable Fix It Pros - Image Loading Test</h1>
+    
+    <div class="test-container">
+        <h2>📸 Hero Image Tests</h2>
+        
+        <div class="image-test">
+            <h3>Test 1: Lowercase filename (handyman-hero.png)</h3>
+            <div class="path-display">images/handyman-hero.png</div>
+            <img src="./images/handyman-hero.png" alt="Handyman Hero Image Test 1" 
+                 onload="document.getElementById('test1-status').className='status success'; document.getElementById('test1-status').textContent='✅ Image loaded successfully!';"
+                 onerror="document.getElementById('test1-status').className='status error'; document.getElementById('test1-status').textContent='❌ Image failed to load';">
+            <div id="test1-status" class="status">⏳ Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Test 2: Original filename (Handyman.png)</h3>
+            <div class="path-display">images/Handyman.png</div>
+            <img src="./images/Handyman.png" alt="Handyman Hero Image Test 2" 
+                 onload="document.getElementById('test2-status').className='status success'; document.getElementById('test2-status').textContent='✅ Image loaded successfully!';"
+                 onerror="document.getElementById('test2-status').className='status error'; document.getElementById('test2-status').textContent='❌ Image failed to load';">
+            <div id="test2-status" class="status">⏳ Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Test 3: With ./ prefix</h3>
+            <div class="path-display">./images/handyman-hero.png</div>
+            <img src="./images/handyman-hero.png" alt="Handyman Hero Image Test 3" 
+                 onload="document.getElementById('test3-status').className='status success'; document.getElementById('test3-status').textContent='✅ Image loaded successfully!';"
+                 onerror="document.getElementById('test3-status').className='status error'; document.getElementById('test3-status').textContent='❌ Image failed to load';">
+            <div id="test3-status" class="status">⏳ Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>🏢 Logo Tests</h2>
+        
+        <div class="image-test">
+            <h3>Logo SVG Test</h3>
+            <div class="path-display">images/logo.svg</div>
+            <img src="./images/logo.svg" alt="Logo Test" width="100" height="100"
+                 onload="document.getElementById('logo-status').className='status success'; document.getElementById('logo-status').textContent='✅ Logo loaded successfully!';"
+                 onerror="document.getElementById('logo-status').className='status error'; document.getElementById('logo-status').textContent='❌ Logo failed to load';">
+            <div id="logo-status" class="status">⏳ Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>👥 Team Image Test</h2>
+        
+        <div class="image-test">
+            <h3>Team SVG Test</h3>
+            <div class="path-display">images/placeholder-team.svg</div>
+            <img src="./images/placeholder-team.svg" alt="Team Test" style="max-width: 400px;"
+                 onload="document.getElementById('team-status').className='status success'; document.getElementById('team-status').textContent='✅ Team image loaded successfully!';"
+                 onerror="document.getElementById('team-status').className='status error'; document.getElementById('team-status').textContent='❌ Team image failed to load';">
+            <div id="team-status" class="status">⏳ Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>📋 Troubleshooting Guide</h2>
+        <h3>If images are not loading:</h3>
+        <ol>
+            <li><strong>Check file names:</strong> Make sure files exist in the images folder with exact names</li>
+            <li><strong>Case sensitivity:</strong> GitHub Pages is case-sensitive, use lowercase filenames</li>
+            <li><strong>File format:</strong> Ensure images are in web-compatible formats (PNG, JPG, SVG)</li>
+            <li><strong>Path format:</strong> Use relative paths without ./ prefix for GitHub Pages</li>
+            <li><strong>Cache:</strong> Hard refresh browser (Ctrl+F5) to clear cache</li>
+        </ol>
+        
+        <h3>GitHub Pages Specific Tips:</h3>
+        <ul>
+            <li>Allow 5-10 minutes for changes to propagate</li>
+            <li>Check the Actions tab for build errors</li>
+            <li>Verify files are in the correct repository structure</li>
+            <li>Test locally before deploying</li>
+        </ul>
+    </div>
+    
+    <div class="test-container">
+        <h2>🔗 Quick Links</h2>
+        <p><a href="index.html">← Back to Main Website</a></p>
+        <p><a href="reliable-fix-it-pros-ads.html">View Ads Landing Page</a></p>
+    </div>
+    
+    <script>
+        // Additional image loading check
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const images = document.querySelectorAll('img');
+                let loadedCount = 0;
+                let totalImages = images.length;
+                
+                images.forEach(img => {
+                    if (img.complete && img.naturalWidth > 0) {
+                        loadedCount++;
+                    }
+                });
+                
+                console.log(`Image loading summary: ${loadedCount}/${totalImages} images loaded successfully`);
+                
+                if (loadedCount === totalImages) {
+                    document.body.insertAdjacentHTML('beforeend', 
+                        '<div style="background: #d4edda; color: #155724; padding: 15px; margin: 20px 0; border-radius: 8px; text-align: center; font-weight: bold;">🎉 All images loaded successfully! Your website is ready for GitHub Pages deployment.</div>'
+                    );
+                } else {
+                    document.body.insertAdjacentHTML('beforeend', 
+                        '<div style="background: #fff3cd; color: #856404; padding: 15px; margin: 20px 0; border-radius: 8px; text-align: center; font-weight: bold;">⚠️ Some images failed to load. Check the troubleshooting guide above.</div>'
+                    );
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
