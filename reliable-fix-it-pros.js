@@ -155,31 +155,20 @@ function initializeBookingModal() {
     });
 }
 
-// Open booking modal
+// Open booking modal - now redirects to lead form
 function openBookingModal(preselectedService = '') {
-    const modal = document.getElementById('bookingModal');
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        
-        // Reset to first step
-        currentStep = 1;
-        showStep(1);
-        
-        // Pre-select service if provided
-        if (preselectedService) {
-            bookingData.service = preselectedService;
-            const serviceOption = document.querySelector(`[data-service="${preselectedService}"]`);
-            if (serviceOption) {
-                selectServiceOption(serviceOption);
-            }
-        }
-        
-        // Track modal open event
-        trackEvent('booking_modal_open', {
-            preselected_service: preselectedService || 'none'
-        });
+    // Track event for analytics
+    trackEvent('booking_initiated', {
+        preselected_service: preselectedService || 'none'
+    });
+    
+    // Redirect to lead form with service parameter
+    let leadUrl = 'lead.html';
+    if (preselectedService) {
+        leadUrl += `?service=${encodeURIComponent(preselectedService)}`;
     }
+    
+    window.location.href = leadUrl;
 }
 
 // Close booking modal
