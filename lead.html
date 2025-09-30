@@ -686,9 +686,9 @@
                                 <span class="service-icon">🏠</span>
                                 <span class="service-name">Maintenance</span>
                             </div>
-                            <div class="service-option" data-service="other">
-                                <span class="service-icon">🔧</span>
-                                <span class="service-name">Other</span>
+                            <div class="service-option" data-service="tech">
+                                <span class="service-icon">📱</span>
+                                <span class="service-name">Tech Setup</span>
                             </div>
                         </div>
                         <div class="error-message" id="serviceError">Please select a service</div>
@@ -812,6 +812,10 @@
                     <span>📞</span>
                     <span>No Spam Calls</span>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color);">
+                <a href="privacy-policy.html" style="color: var(--medium-gray); font-size: 12px; text-decoration: none;">Privacy Policy</a>
             </div>
         </div>
     </div>
@@ -990,7 +994,7 @@
                 'carpentry': 100,
                 'painting': 200,
                 'maintenance': 80,
-                'other': 100
+                'tech': 130
             };
             return prices[service] || 100;
         }
