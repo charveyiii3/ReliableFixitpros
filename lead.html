@@ -661,12 +661,15 @@
                 <div class="step-indicator" data-step="4">4</div>
             </div>
             
-            <form id="leadForm" name="lead-form" netlify>
+            <form id="leadForm" name="lead-form" netlify data-netlify="true" method="POST">
                 <!-- Hidden fields for Netlify -->
                 <input type="hidden" name="form-name" value="lead-form">
                 <input type="hidden" name="service-type" id="serviceType" value="">
                 <input type="hidden" name="urgency-level" id="urgencyLevel" value="">
                 <input type="hidden" name="quote-estimate" id="quoteEstimate" value="">
+                <div style="display: none;">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </div>
                 
                 <!-- Step 1: Service Selection -->
                 <div class="form-step active" id="step1">
@@ -696,6 +699,11 @@
                             <div class="service-option" data-service="tech">
                                 <span class="service-icon">📱</span>
                                 <span class="service-name">Tech Setup</span>
+                            </div>
+                            <div class="service-option" data-service="christmas-lights" style="border: 2px solid #FFD700; background: linear-gradient(145deg, #0f4c3a, #1a5c47); color: white;">
+                                <span class="service-icon">🎄</span>
+                                <span class="service-name">Christmas Lights</span>
+                                <span style="font-size: 10px; color: #FFD700;">10% OFF!</span>
                             </div>
                         </div>
                         <div class="error-message" id="serviceError">Please select a service</div>
@@ -987,11 +995,29 @@
                 const basePrice = getBasePrice(formData.service);
                 const urgencyMultiplier = getUrgencyMultiplier(formData.urgency);
                 
-                const minPrice = Math.round(basePrice * urgencyMultiplier);
-                const maxPrice = Math.round(minPrice * 1.8);
+                let minPrice = Math.round(basePrice * urgencyMultiplier);
+                let maxPrice = Math.round(minPrice * 1.8);
                 
-                const quoteText = `$${minPrice} - $${maxPrice}`;
-                document.getElementById('quoteAmount').textContent = quoteText;
+                // Apply Christmas discount if applicable
+                const urlParams = new URLSearchParams(window.location.search);
+                const discount = urlParams.get('discount');
+                let quoteText = `$${minPrice} - $${maxPrice}`;
+                
+                if (formData.service === 'christmas-lights' && discount === '10') {
+                    const discountedMin = Math.round(minPrice * 0.9);
+                    const discountedMax = Math.round(maxPrice * 0.9);
+                    quoteText = `$${discountedMin} - $${discountedMax}`;
+                    
+                    // Show original price crossed out
+                    document.getElementById('quoteAmount').innerHTML = `
+                        <div style="text-decoration: line-through; color: #999; font-size: 20px;">$${minPrice} - $${maxPrice}</div>
+                        <div style="color: #4caf50;">${quoteText}</div>
+                        <div style="font-size: 16px; color: #FFD700;">🎄 Christmas Special: 10% OFF!</div>
+                    `;
+                } else {
+                    document.getElementById('quoteAmount').textContent = quoteText;
+                }
+                
                 document.getElementById('quoteEstimate').value = quoteText;
                 
                 nextStep();
@@ -1005,7 +1031,8 @@
                 'carpentry': 100,
                 'painting': 200,
                 'maintenance': 80,
-                'tech': 130
+                'tech': 130,
+                'christmas-lights': 250
             };
             return prices[service] || 100;
         }
@@ -1092,6 +1119,7 @@
         function handleServiceParameter() {
             const urlParams = new URLSearchParams(window.location.search);
             const preselectedService = urlParams.get('service');
+            const discount = urlParams.get('discount');
             
             if (preselectedService) {
                 // Find and select the corresponding service option
@@ -1106,7 +1134,26 @@
                         serviceOption.style.animation = 'pulse 1s ease-in-out';
                     }, 500);
                 }
+                
+                // Show special Christmas banner if it's Christmas lights with discount
+                if (preselectedService === 'christmas-lights' && discount === '10') {
+                    showChristmasDiscountBanner();
+                }
             }
+        }
+        
+        function showChristmasDiscountBanner() {
+            const banner = document.createElement('div');
+            banner.innerHTML = `
+                <div style="background: linear-gradient(45deg, #228B22, #32CD32); color: white; padding: 15px; text-align: center; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(34, 139, 34, 0.3);">
+                    <h3 style="margin: 0; font-size: 18px;">🎄 Christmas Special Applied! 🎄</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 14px;">You're getting 10% OFF your Christmas light installation!</p>
+                </div>
+            `;
+            
+            const formContainer = document.querySelector('.form-container');
+            const formHeader = document.querySelector('.form-header');
+            formContainer.insertBefore(banner, formHeader.nextSibling);
         }
     </script>
 </body>

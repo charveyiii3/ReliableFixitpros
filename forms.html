@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netlify Forms Detection - Reliable Fix It Pros</title>
+    <style>
+        /* Hidden forms for Netlify bot detection */
+        .netlify-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- This file helps Netlify detect forms during build process -->
+    
+    <!-- Contact Form Template -->
+    <form name="contact" netlify data-netlify="true" method="POST" class="netlify-form">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <textarea name="message" placeholder="Describe your project" rows="4" required></textarea>
+    </form>
+
+    <!-- Lead Form Template -->
+    <form name="lead-form" netlify data-netlify="true" method="POST" class="netlify-form">
+        <input type="hidden" name="form-name" value="lead-form">
+        <input type="hidden" name="service-type" value="">
+        <input type="hidden" name="urgency-level" value="">
+        <input type="hidden" name="quote-estimate" value="">
+        
+        <input type="text" name="full-name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="service-address" placeholder="Service Address" required>
+        <textarea name="project-description" placeholder="Project Description" rows="4" required></textarea>
+    </form>
+
+    <p>This page contains static form templates for Netlify form detection. It should not be visible to users.</p>
+</body>
+</html>

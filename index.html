@@ -364,11 +364,14 @@
                 <div class="contact-form-section">
                     <div class="quick-contact">
                         <h3>Quick Contact</h3>
-                        <form name="contact" netlify class="contact-form">
+                        <form name="contact" netlify data-netlify="true" method="POST" class="contact-form">
                             <input type="text" name="name" placeholder="Your Name" required>
                             <input type="tel" name="phone" placeholder="Phone Number" required>
                             <textarea name="message" placeholder="Describe your project" rows="4" required></textarea>
                             <input type="hidden" name="form-name" value="contact">
+                            <div style="display: none;">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </div>
                             <button type="submit" class="submit-btn">Send Message</button>
                         </form>
                     </div>
@@ -567,6 +570,444 @@
             </div>
         </div>
     </div>
+
+    <!-- Christmas Lights Popup -->
+    <div id="christmasPopup" class="christmas-popup-overlay">
+        <div class="christmas-popup">
+            <button class="christmas-close" onclick="closeChristmasPopup()">&times;</button>
+            <div class="christmas-content">
+                <div class="christmas-header">
+                    <h2>🎄 Holiday Light Hanging Special! 🎄</h2>
+                    <div class="twinkling-lights"></div>
+                </div>
+                
+                <div class="christmas-body">
+                    <div class="christmas-image">
+                        <img src="images/christmas-lights.png" alt="Christmas Light Installation by Reliable Fix It Pros" loading="lazy">
+                    </div>
+                    
+                    <div class="christmas-offer">
+                        <div class="discount-badge">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">OFF</span>
+                        </div>
+                        
+                        <h3>Professional Christmas Light Installation</h3>
+                        <ul class="christmas-benefits">
+                            <li>✨ Professional installation & takedown</li>
+                            <li>🏠 Custom design for your home</li>
+                            <li>💡 LED lights & quality materials</li>
+                            <li>🛡️ Fully insured & licensed</li>
+                            <li>🎅 Ready before Christmas!</li>
+                        </ul>
+                        
+                        <div class="christmas-urgency">
+                            <p><strong>🕒 Limited Time Offer!</strong></p>
+                            <p>Book before December 15th to guarantee installation before Christmas!</p>
+                        </div>
+                        
+                        <div class="christmas-cta">
+                            <button class="christmas-btn-primary" onclick="openChristmasBooking()">
+                                🎄 Get My 10% Discount
+                            </button>
+                            <a href="tel:+1-626-340-0773" class="christmas-phone">
+                                📞 Call Now: (626) 340-0773
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="christmas-footer">
+                    <p>*Offer valid for new Christmas light installations only. Cannot be combined with other offers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Christmas Popup Styles */
+        .christmas-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .christmas-popup-overlay.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .christmas-popup {
+            background: linear-gradient(145deg, #0f4c3a, #1a5c47);
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 3px solid #FFD700;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .christmas-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .christmas-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .christmas-content {
+            padding: 30px;
+            color: white;
+        }
+
+        .christmas-header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .christmas-header h2 {
+            font-size: 28px;
+            margin: 0;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px #FFD700; }
+            to { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px #FFD700, 0 0 30px #FFD700; }
+        }
+
+        .twinkling-lights {
+            height: 10px;
+            background: linear-gradient(90deg, 
+                #ff0000 0%, #00ff00 20%, #0000ff 40%, 
+                #ffff00 60%, #ff00ff 80%, #00ffff 100%
+            );
+            border-radius: 5px;
+            margin: 15px auto;
+            width: 200px;
+            animation: twinkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .christmas-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .christmas-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .christmas-offer h3 {
+            color: #FFD700;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .discount-badge {
+            background: linear-gradient(45deg, #DC143C, #B22222);
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .discount-percent {
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .discount-text {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .christmas-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .christmas-benefits li {
+            padding: 8px 0;
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .christmas-urgency {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .christmas-urgency p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .christmas-cta {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .christmas-btn-primary {
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(34, 139, 34, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .christmas-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 139, 34, 0.4);
+        }
+
+        .christmas-phone {
+            display: block;
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 10px;
+            border: 2px solid #FFD700;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .christmas-phone:hover {
+            background: #FFD700;
+            color: #0f4c3a;
+        }
+
+        .christmas-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            padding-top: 15px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .christmas-popup {
+                margin: 10px;
+                max-height: 95vh;
+            }
+
+            .christmas-content {
+                padding: 20px;
+            }
+
+            .christmas-body {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .christmas-header h2 {
+                font-size: 24px;
+            }
+
+            .christmas-offer h3 {
+                font-size: 20px;
+            }
+
+            .christmas-benefits li {
+                font-size: 14px;
+            }
+        }
+
+        /* Snow Animation */
+        .christmas-popup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 40% 70%, white, transparent),
+                radial-gradient(1px 1px at 90% 40%, white, transparent),
+                radial-gradient(1px 1px at 60% 10%, white, transparent);
+            background-repeat: repeat;
+            background-size: 550px 400px, 350px 250px, 250px 200px, 150px 100px;
+            animation: snow 10s linear infinite;
+            opacity: 0.6;
+            pointer-events: none;
+            border-radius: 20px;
+        }
+
+        @keyframes snow {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(400px); }
+        }
+    </style>
+
+    <script>
+        // Christmas Popup JavaScript
+        let christmasPopupShown = false;
+
+        function showChristmasPopup() {
+            if (!christmasPopupShown && !localStorage.getItem('christmasPopupClosed')) {
+                const popup = document.getElementById('christmasPopup');
+                popup.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                christmasPopupShown = true;
+                
+                // Track popup show event
+                if (typeof trackEvent !== 'undefined') {
+                    trackEvent('christmas_popup_shown');
+                }
+            }
+        }
+
+        function closeChristmasPopup() {
+            const popup = document.getElementById('christmasPopup');
+            popup.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            
+            // Remember that user closed popup
+            localStorage.setItem('christmasPopupClosed', 'true');
+            
+            // Track popup close event
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('christmas_popup_closed');
+            }
+        }
+
+        function openChristmasBooking() {
+            // Track conversion event
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('christmas_discount_clicked');
+            }
+            
+            // Close popup and redirect to lead form with Christmas service
+            closeChristmasPopup();
+            
+            // Redirect to lead form with Christmas lights parameter
+            window.location.href = 'lead.html?service=christmas-lights&discount=10';
+        }
+
+        // Show popup after page loads and user shows interest
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show popup after 3 seconds if user hasn't closed it before
+            setTimeout(() => {
+                showChristmasPopup();
+            }, 3000);
+
+            // Also show on scroll (user engagement)
+            let scrollTriggered = false;
+            window.addEventListener('scroll', function() {
+                if (!scrollTriggered && window.scrollY > 300) {
+                    scrollTriggered = true;
+                    setTimeout(() => {
+                        showChristmasPopup();
+                    }, 1000);
+                }
+            });
+
+            // Close popup when clicking outside
+            document.getElementById('christmasPopup').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeChristmasPopup();
+                }
+            });
+
+            // Close popup with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && christmasPopupShown) {
+                    closeChristmasPopup();
+                }
+            });
+        });
+
+        // Reset popup for new sessions (optional - remove if you want it to stay closed)
+        // Uncomment the line below if you want the popup to show again after 24 hours
+        // setTimeout(() => localStorage.removeItem('christmasPopupClosed'), 24 * 60 * 60 * 1000);
+    </script>
 
     <script src="reliable-fix-it-pros.js"></script>
     <script src="image-fix.js"></script>
