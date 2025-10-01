@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Light Installation Booking - 10% OFF | Reliable Fix It Pros</title>
+    <meta name="description" content="Book your Christmas light installation with 10% OFF! Professional holiday lighting services. Licensed, insured, and guaranteed before Christmas.">
+    <meta name="robots" content="noindex, follow">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f4c3a, #1a5c47);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #FFD700;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #FFD700;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .discount-badge {
+            background: linear-gradient(45deg, #DC143C, #B22222);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #FFD700;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #228B22, #32CD32);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 139, 34, 0.4);
+        }
+        
+        .benefits {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .benefits h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+        
+        .benefits ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits li {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎄 Christmas Light Installation</h1>
+            <div class="discount-badge">10% OFF Special Offer!</div>
+            <p>Professional holiday lighting installation with guaranteed completion before Christmas</p>
+        </div>
+        
+        <div class="benefits">
+            <h3>What's Included:</h3>
+            <ul>
+                <li>✨ Professional design & installation</li>
+                <li>🏠 Custom layout for your home</li>
+                <li>💡 High-quality LED lights provided</li>
+                <li>🛡️ Fully licensed & insured</li>
+                <li>🎅 Completion before Christmas guaranteed</li>
+                <li>📞 Free post-installation support</li>
+            </ul>
+        </div>
+        
+        <form name="christmas-booking" netlify data-netlify="true" method="POST">
+            <input type="hidden" name="form-name" value="christmas-booking">
+            <input type="hidden" name="service-type" value="christmas-lights">
+            <input type="hidden" name="discount-applied" value="10% Christmas Special">
+            <input type="hidden" name="lead-source" value="christmas-popup">
+            
+            <div style="display: none;">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </div>
+            
+            <div class="form-group">
+                <label for="customer-name">Full Name *</label>
+                <input type="text" id="customer-name" name="customer-name" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="service-address">Installation Address *</label>
+                <input type="text" id="service-address" name="service-address" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="home-type">Type of Home</label>
+                <select id="home-type" name="home-type" class="form-input">
+                    <option value="">Select...</option>
+                    <option value="single-story">Single Story</option>
+                    <option value="two-story">Two Story</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="apartment">Apartment/Condo</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="preferred-style">Preferred Lighting Style</label>
+                <select id="preferred-style" name="preferred-style" class="form-input">
+                    <option value="">Select...</option>
+                    <option value="classic-warm">Classic Warm White</option>
+                    <option value="multicolor">Multicolor</option>
+                    <option value="icicle">Icicle Lights</option>
+                    <option value="custom">Custom Design</option>
+                    <option value="not-sure">Not Sure - Need Consultation</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="installation-date">Preferred Installation Date</label>
+                <input type="date" id="installation-date" name="installation-date" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label for="special-requests">Special Requests or Notes</label>
+                <textarea id="special-requests" name="special-requests" class="form-input" rows="4" placeholder="Any specific requirements, areas to focus on, or questions..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="takedown-service">
+                    <input type="checkbox" id="takedown-service" name="takedown-service" value="yes" style="margin-right: 10px;">
+                    Include post-holiday takedown service
+                </label>
+            </div>
+            
+            <button type="submit" class="submit-btn">🎄 Book My Christmas Lights (10% OFF)</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 30px; font-size: 14px; opacity: 0.8;">
+            <p>🕒 <strong>Book before December 15th</strong> to guarantee installation before Christmas!</p>
+            <p>Questions? Call us directly: <a href="tel:+1-626-340-0773" style="color: #FFD700;">(626) 340-0773</a></p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-format phone number
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
+            } else if (value.length >= 3) {
+                value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+            }
+            e.target.value = value;
+        });
+        
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('installation-date').setAttribute('min', today);
+        
+        // Form submission tracking
+        document.querySelector('form').addEventListener('submit', function(e) {
+            // Track conversion event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'christmas_booking_submitted', {
+                    'event_category': 'Lead Generation',
+                    'event_label': 'Christmas Lights Special'
+                });
+            }
+            
+            console.log('Christmas booking form submitted');
+        });
+    </script>
+</body>
+</html>

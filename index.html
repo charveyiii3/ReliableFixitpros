@@ -610,6 +610,9 @@
                             <button class="christmas-btn-primary" onclick="openChristmasBooking()">
                                 🎄 Get My 10% Discount
                             </button>
+                            <button class="christmas-btn-secondary" onclick="openChristmasForm()" style="background: rgba(255, 215, 0, 0.2); border: 2px solid #FFD700; color: #FFD700; padding: 12px 30px; border-radius: 25px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; margin: 10px 0; transition: all 0.3s ease;">
+                                📋 Quick Christmas Booking Form
+                            </button>
                             <a href="tel:+1-626-340-0773" class="christmas-phone">
                                 📞 Call Now: (626) 340-0773
                             </a>
@@ -969,6 +972,19 @@
             
             // Redirect to lead form with Christmas lights parameter
             window.location.href = 'lead.html?service=christmas-lights&discount=10';
+        }
+        
+        function openChristmasForm() {
+            // Track conversion event
+            if (typeof trackEvent !== 'undefined') {
+                trackEvent('christmas_form_clicked');
+            }
+            
+            // Close popup and redirect to dedicated Christmas booking form
+            closeChristmasPopup();
+            
+            // Redirect to dedicated Christmas booking form
+            window.location.href = 'christmas-booking.html';
         }
 
         // Show popup after page loads and user shows interest

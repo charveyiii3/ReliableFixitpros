@@ -28,12 +28,55 @@
         <input type="hidden" name="service-type" value="">
         <input type="hidden" name="urgency-level" value="">
         <input type="hidden" name="quote-estimate" value="">
+        <input type="hidden" name="discount-applied" value="">
+        <input type="hidden" name="original-price" value="">
         
         <input type="text" name="full-name" placeholder="Full Name" required>
         <input type="tel" name="phone" placeholder="Phone Number" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="text" name="service-address" placeholder="Service Address" required>
         <textarea name="project-description" placeholder="Project Description" rows="4" required></textarea>
+        
+        <!-- Service options for Netlify detection -->
+        <select name="service-options" style="display: none;">
+            <option value="plumbing">Plumbing</option>
+            <option value="electrical">Electrical</option>
+            <option value="carpentry">Carpentry</option>
+            <option value="painting">Painting</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="tech">Tech Setup</option>
+            <option value="christmas-lights">Christmas Lights</option>
+        </select>
+    </form>
+
+    <!-- Christmas Booking Form Template -->
+    <form name="christmas-booking" netlify data-netlify="true" method="POST" class="netlify-form">
+        <input type="hidden" name="form-name" value="christmas-booking">
+        <input type="hidden" name="service-type" value="christmas-lights">
+        <input type="hidden" name="discount-applied" value="10% Christmas Special">
+        <input type="hidden" name="lead-source" value="christmas-popup">
+        
+        <input type="text" name="customer-name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="service-address" placeholder="Installation Address" required>
+        <select name="home-type">
+            <option value="single-story">Single Story</option>
+            <option value="two-story">Two Story</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="apartment">Apartment/Condo</option>
+            <option value="other">Other</option>
+        </select>
+        <select name="preferred-style">
+            <option value="classic-warm">Classic Warm White</option>
+            <option value="multicolor">Multicolor</option>
+            <option value="icicle">Icicle Lights</option>
+            <option value="custom">Custom Design</option>
+            <option value="not-sure">Not Sure - Need Consultation</option>
+        </select>
+        <input type="date" name="installation-date">
+        <textarea name="special-requests" placeholder="Special Requests or Notes"></textarea>
+        <input type="checkbox" name="takedown-service" value="yes">
     </form>
 
     <p>This page contains static form templates for Netlify form detection. It should not be visible to users.</p>

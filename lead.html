@@ -667,6 +667,8 @@
                 <input type="hidden" name="service-type" id="serviceType" value="">
                 <input type="hidden" name="urgency-level" id="urgencyLevel" value="">
                 <input type="hidden" name="quote-estimate" id="quoteEstimate" value="">
+                <input type="hidden" name="discount-applied" id="discountApplied" value="">
+                <input type="hidden" name="original-price" id="originalPrice" value="">
                 <div style="display: none;">
                     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                 </div>
@@ -1014,8 +1016,14 @@
                         <div style="color: #4caf50;">${quoteText}</div>
                         <div style="font-size: 16px; color: #FFD700;">🎄 Christmas Special: 10% OFF!</div>
                     `;
+                    
+                    // Update hidden fields for Netlify form tracking
+                    document.getElementById('discountApplied').value = '10% Christmas Special';
+                    document.getElementById('originalPrice').value = `$${minPrice} - $${maxPrice}`;
                 } else {
                     document.getElementById('quoteAmount').textContent = quoteText;
+                    document.getElementById('discountApplied').value = 'None';
+                    document.getElementById('originalPrice').value = quoteText;
                 }
                 
                 document.getElementById('quoteEstimate').value = quoteText;
@@ -1138,6 +1146,8 @@
                 // Show special Christmas banner if it's Christmas lights with discount
                 if (preselectedService === 'christmas-lights' && discount === '10') {
                     showChristmasDiscountBanner();
+                    // Pre-populate discount fields
+                    document.getElementById('discountApplied').value = '10% Christmas Special (from popup)';
                 }
             }
         }
