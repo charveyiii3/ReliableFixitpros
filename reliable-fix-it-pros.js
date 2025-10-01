@@ -106,10 +106,9 @@ function initializeContactForm() {
             e.preventDefault();
             
             // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const message = this.querySelector('textarea').value;
+            const name = this.querySelector('input[name="name"]').value;
+            const phone = this.querySelector('input[name="phone"]').value;
+            const message = this.querySelector('textarea[name="message"]').value;
             
             // Basic validation
             if (!name || !phone || !message) {
@@ -122,13 +121,37 @@ function initializeContactForm() {
                 return;
             }
             
-            // Simulate form submission
-            showNotification('Thank you for your message! We\'ll contact you within 30 minutes.', 'success');
-            this.reset();
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
             
-            // Track conversion event for analytics
-            trackEvent('contact_form_submit', {
-                form_type: 'quick_contact'
+            // Submit to Netlify
+            const formData = new FormData(this);
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                showNotification('Thank you for your message! We\'ll contact you within 30 minutes.', 'success');
+                this.reset();
+                
+                // Track conversion event for analytics
+                trackEvent('contact_form_submit', {
+                    form_type: 'quick_contact'
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                showNotification('There was an error sending your message. Please try again or call us directly.', 'error');
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
             });
         });
     }

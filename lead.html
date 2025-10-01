@@ -661,7 +661,13 @@
                 <div class="step-indicator" data-step="4">4</div>
             </div>
             
-            <form id="leadForm">
+            <form id="leadForm" name="lead-form" netlify>
+                <!-- Hidden fields for Netlify -->
+                <input type="hidden" name="form-name" value="lead-form">
+                <input type="hidden" name="service-type" id="serviceType" value="">
+                <input type="hidden" name="urgency-level" id="urgencyLevel" value="">
+                <input type="hidden" name="quote-estimate" id="quoteEstimate" value="">
+                
                 <!-- Step 1: Service Selection -->
                 <div class="form-step active" id="step1">
                     <div class="form-group">
@@ -702,7 +708,7 @@
                 <div class="form-step" id="step2">
                     <div class="form-group">
                         <label for="projectDescription">Describe your project *</label>
-                        <textarea id="projectDescription" class="form-input" rows="4" placeholder="Please describe what you need done. Be as specific as possible for an accurate quote."></textarea>
+                        <textarea id="projectDescription" name="project-description" class="form-input" rows="4" placeholder="Please describe what you need done. Be as specific as possible for an accurate quote."></textarea>
                         <div class="error-message" id="descriptionError">Please describe your project</div>
                     </div>
                     
@@ -739,25 +745,25 @@
                 <div class="form-step" id="step3">
                     <div class="form-group">
                         <label for="fullName">Full Name *</label>
-                        <input type="text" id="fullName" class="form-input" placeholder="Enter your full name">
+                        <input type="text" id="fullName" name="full-name" class="form-input" placeholder="Enter your full name">
                         <div class="error-message" id="nameError">Please enter your name</div>
                     </div>
                     
                     <div class="form-group">
                         <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" class="form-input" placeholder="(xxx) xxx-xxxx">
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="(xxx) xxx-xxxx">
                         <div class="error-message" id="phoneError">Please enter a valid phone number</div>
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" class="form-input" placeholder="your@email.com">
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com">
                         <div class="error-message" id="emailError">Please enter a valid email</div>
                     </div>
                     
                     <div class="form-group">
                         <label for="address">Service Address *</label>
-                        <input type="text" id="address" class="form-input" placeholder="Street address, City, State">
+                        <input type="text" id="address" name="service-address" class="form-input" placeholder="Street address, City, State">
                         <div class="error-message" id="addressError">Please enter service address</div>
                     </div>
                     
@@ -832,6 +838,7 @@
                 document.querySelectorAll('.service-option').forEach(o => o.classList.remove('selected'));
                 this.classList.add('selected');
                 formData.service = this.dataset.service;
+                document.getElementById('serviceType').value = this.dataset.service;
                 hideError('serviceError');
             });
         });
@@ -842,6 +849,7 @@
                 document.querySelectorAll('.urgency-option').forEach(o => o.classList.remove('selected'));
                 this.classList.add('selected');
                 formData.urgency = this.dataset.urgency;
+                document.getElementById('urgencyLevel').value = this.dataset.urgency;
                 hideError('urgencyError');
             });
         });
@@ -982,7 +990,9 @@
                 const minPrice = Math.round(basePrice * urgencyMultiplier);
                 const maxPrice = Math.round(minPrice * 1.8);
                 
-                document.getElementById('quoteAmount').textContent = `$${minPrice} - $${maxPrice}`;
+                const quoteText = `$${minPrice} - $${maxPrice}`;
+                document.getElementById('quoteAmount').textContent = quoteText;
+                document.getElementById('quoteEstimate').value = quoteText;
                 
                 nextStep();
             }
@@ -1014,19 +1024,51 @@
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Here you would typically send the data to your server
-            console.log('Form Data:', formData);
+            // Validate final step
+            if (!validateCurrentStep()) {
+                return;
+            }
             
-            // Simulate successful submission
-            alert('Thank you! Your booking request has been submitted. We\'ll call you within 15 minutes to confirm your appointment.');
+            // Show loading state
+            const submitButton = document.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
             
-            // Reset form
-            currentStep = 1;
-            formData = {};
-            showStep(1);
-            updateProgress();
-            document.getElementById('leadForm').reset();
-            document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+            // Netlify forms handle submission automatically when form has netlify attribute
+            // We'll use fetch to submit the form data
+            const formData = new FormData(this);
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                // Success
+                alert('Thank you! Your quote request has been submitted. We\'ll call you within 15 minutes to confirm your appointment.');
+                
+                // Reset form
+                currentStep = 1;
+                showStep(1);
+                updateProgress();
+                this.reset();
+                document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+                
+                // Reset hidden fields
+                document.getElementById('serviceType').value = '';
+                document.getElementById('urgencyLevel').value = '';
+                document.getElementById('quoteEstimate').value = '';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('There was an error submitting your form. Please try again or call us directly at (626) 340-0773.');
+            })
+            .finally(() => {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
         });
         
         // Auto-format phone number
@@ -1057,6 +1099,7 @@
                 if (serviceOption) {
                     serviceOption.click(); // This will trigger the click event and select the service
                     formData.service = preselectedService;
+                    document.getElementById('serviceType').value = preselectedService;
                     
                     // Add visual indication that service was pre-selected
                     setTimeout(() => {
